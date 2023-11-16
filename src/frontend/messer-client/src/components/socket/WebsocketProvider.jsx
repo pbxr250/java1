@@ -11,8 +11,10 @@ const WebsocketProvider = ({ children }) => {
   useEffect(() => {
     const isProduction = import.meta.env.PROD;
     const websocketUrl = isProduction
-        ? import.meta.env.VITE_WEBSOCKET_URL_PROD
-        : import.meta.env.VITE_WEBSOCKET_URL_DEV;
+        ? 'ws://' + window.location.host + '/chat'
+        //? import.meta.env.VITE_WEBSOCKET_URL_PROD
+        : 'ws://' + window.location.host + '/chat';
+        //: import.meta.env.VITE_WEBSOCKET_URL_DEV;
     const socket = new WebSocket(websocketUrl);
 
     socket.onopen = () => setIsReady(true);

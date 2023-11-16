@@ -15,7 +15,7 @@
     <name>messerapp</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -48,6 +48,14 @@
                     <image>
                         <builder>paketobuildpacks/builder-jammy-base:latest</builder>
                     </image>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warName>chat</warName>
                 </configuration>
             </plugin>
         </plugins>
